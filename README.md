@@ -1,7 +1,7 @@
 # go-gitlab-wrapper - Work in Progress
 My wrapper for some [go-gitlab][go-gitlab-link] operations.
 
-[go-gitlab-link]: [go-gitlab-link]: https://github.com/xanzy/go-gitlab
+[go-gitlab-link]: https://github.com/xanzy/go-gitlab
 
 # Usage
 Only some parts of the API are wrapped. However, the wrapper embeds the

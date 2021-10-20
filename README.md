@@ -75,7 +75,7 @@ file2Opt := wrapper.CreateFileAction("dir2/file2.txt", file2Contents)
 dir3Opt := wrapper.NewDirectoryAction("dir3")
 dir4Opt := wrapper.NewDirectoryAction("dir3/dir4")
 
-options := [4]*CommitActionOptions{
+options := [4]*CommitAction{
     file1Opt, file2Opt, dir3Opt, dir4Opt,
 }
 ```

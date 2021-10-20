@@ -75,7 +75,7 @@ file2Opt := wrapper.NewFileAction("dir2/file2.txt", file2Contents)
 dir3Opt := wrapper.NewDirectoryAction("dir3")
 dir4Opt := wrapper.NewDirectoryAction("dir3/dir4")
 
-options := [4]*gitlab.CommitActionOptions{
+options := [4]*CommitActionOptions{
     file1Opt, file2Opt, dir3Opt, dir4Opt,
 }
 ```

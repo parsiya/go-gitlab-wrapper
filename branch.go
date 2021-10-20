@@ -26,7 +26,7 @@ func (w *Wrapper) ClearBranch(branch, commitMessage string) (*gl.Commit, error) 
 		return nil, err
 	}
 
-	commitActions := make([]*gl.CommitActionOptions, len(nodes))
+	commitActions := make([]*CommitAction, len(nodes))
 
 	for i, node := range nodes {
 		// We need one action per node.

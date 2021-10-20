@@ -61,7 +61,7 @@ func (w *Wrapper) NewFile(branch, commitMsg, fileName string, content []byte) (*
 }
 
 // Commit creates a new commit with the included array of CommitActionOptions.
-func (w *Wrapper) Commit(actions []*gl.CommitActionOptions, branch, commitMessage string) (*gl.Commit, error) {
+func (w *Wrapper) Commit(actions []*CommitAction, branch, commitMessage string) (*gl.Commit, error) {
 
 	opts := &gl.CreateCommitOptions{
 		Actions:       actions,

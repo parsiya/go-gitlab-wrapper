@@ -6,15 +6,15 @@ import (
 	gl "github.com/xanzy/go-gitlab"
 )
 
-// CommitActionOptions is an alias of CommitActionOptions
-type CommitActionOptions gl.CommitActionOptions
+// CommitAction is an alias of CommitActionOptions.
+type CommitAction = gl.CommitActionOptions
 
 // CreateFileAction returns a CommitActionOptions to create a new file at path
 // with content.
-func CreateFileAction(path, content string) *CommitActionOptions {
+func CreateFileAction(path, content string) *CommitAction {
 
 	encoded := base64.StdEncoding.EncodeToString([]byte(content))
-	return &CommitActionOptions{
+	return &CommitAction{
 		Action:   gl.FileAction(gl.FileCreate),
 		FilePath: &path,
 		Content:  &encoded,
@@ -23,9 +23,9 @@ func CreateFileAction(path, content string) *CommitActionOptions {
 }
 
 // DeleteFileAction returns a CommitActionOptions to delete the file at path.
-func DeleteFileAction(path string) *CommitActionOptions {
+func DeleteFileAction(path string) *CommitAction {
 
-	return &CommitActionOptions{
+	return &CommitAction{
 		Action:   gl.FileAction(gl.FileDelete),
 		FilePath: &path,
 	}
@@ -33,9 +33,9 @@ func DeleteFileAction(path string) *CommitActionOptions {
 
 // MoveFileAction returns a CommitActionOptions to move a file from previousPath
 // to path.
-func MoveFileAction(path, previousPath string) *CommitActionOptions {
+func MoveFileAction(path, previousPath string) *CommitAction {
 
-	return &CommitActionOptions{
+	return &CommitAction{
 		Action:       gl.FileAction(gl.FileMove),
 		FilePath:     &path,
 		PreviousPath: &previousPath,
@@ -44,10 +44,10 @@ func MoveFileAction(path, previousPath string) *CommitActionOptions {
 
 // UpdateFileAction returns a CommitActionOptions to update the file at path with
 // content.
-func UpdateFileAction(path, content string) *CommitActionOptions {
+func UpdateFileAction(path, content string) *CommitAction {
 
 	encoded := base64.StdEncoding.EncodeToString([]byte(content))
-	return &CommitActionOptions{
+	return &CommitAction{
 		Action:   gl.FileAction(gl.FileUpdate),
 		FilePath: &path,
 		Content:  &encoded,
@@ -57,9 +57,9 @@ func UpdateFileAction(path, content string) *CommitActionOptions {
 
 // ChmodFileAction returns a CommitActionOptions that changes the executable status of
 // the file at path to execute_filemode.
-func ChmodFileAction(path string, executeFilemode bool) *CommitActionOptions {
+func ChmodFileAction(path string, executeFilemode bool) *CommitAction {
 
-	return &CommitActionOptions{
+	return &CommitAction{
 		Action:          gl.FileAction(gl.FileChmod),
 		FilePath:        &path,
 		ExecuteFilemode: &executeFilemode,
@@ -72,7 +72,7 @@ func ChmodFileAction(path string, executeFilemode bool) *CommitActionOptions {
 //
 // path: Just supply the path to the directory. .gitkeep will be added by the
 // function.
-func NewDirectoryAction(path string) *CommitActionOptions {
+func NewDirectoryAction(path string) *CommitAction {
 
 	path += "/.gitkeep"
 	return CreateFileAction(path, "")

@@ -68,8 +68,8 @@ multiple actions. We need one action per operation.
 file1Contents := "File 1 contents"
 file2Contents := "File 2 contents"
 
-file1Opt := wrapper.NewFileAction("dir1/file1.txt", file1Contents)
-file2Opt := wrapper.NewFileAction("dir2/file2.txt", file2Contents)
+file1Opt := wrapper.CreateFileAction("dir1/file1.txt", file1Contents)
+file2Opt := wrapper.CreateFileAction("dir2/file2.txt", file2Contents)
 
 // Create an empty directory - creates a directory with just the ".gitkeep" file.
 dir3Opt := wrapper.NewDirectoryAction("dir3")
